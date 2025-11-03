@@ -6,7 +6,8 @@ int find_word(char dict[6][12],int size,char searchWord[]){
   int is_found = 1;
   for (int i = 0; i < size; i++){
     is_found = 1;
-    for (int j = 0; j < strlen(dict[i]) && strlen(searchWord) != strlen(dict[i]) ; j++){
+    if(strlen(searchWord) != strlen(dict[i])) continue;
+    for (int j = 0; j < strlen(dict[i])  ; j++){
       if(dict[i][j] != searchWord[j]) is_found = 0;
     }
     if(is_found) return i;
@@ -36,3 +37,4 @@ int main(void) {
 
     return 0;
 }
+
